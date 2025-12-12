@@ -12,7 +12,6 @@ export type Role = {
 // --------------------------
 export const fetchRoles = createAsyncThunk("roles/fetchRoles", async () => {
   const token = tokenService.get();
-  console.log('token: ', token);
 
   const res = await api.get("/roles", {
     headers: { Authorization: `Bearer ${token}` },

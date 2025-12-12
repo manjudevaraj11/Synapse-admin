@@ -33,7 +33,7 @@ const Sidebar = () => {
         Roles
       </NavItem>
 
-      <NavItem to="/permission" icon={<Users size={18} />}>
+      <NavItem to="/permissions" icon={<Users size={18} />}>
         Permissions
       </NavItem>
 

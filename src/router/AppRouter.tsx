@@ -4,6 +4,7 @@ import Layout from "../layout/Layout";
 import Login from "../pages/Login";
 import RolesPage from "@/pages/roles/RolesPage";
 import AuthGate from "@/components/auth/AuthGate";
+import PermissionsPage from "@/pages/Permissions/PermissionsPage";
 
 const AppRouter = () => {
   return (
@@ -15,9 +16,11 @@ const AppRouter = () => {
       <Route
         path="/"
         element={
-          <Layout>
-            <Dashboard />
-          </Layout>
+          <AuthGate>
+            <Layout>
+              <Dashboard />
+            </Layout>
+          </AuthGate>
         }
       />
       <Route
@@ -26,6 +29,16 @@ const AppRouter = () => {
           <AuthGate>
             <Layout>
               <RolesPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/permissions"
+        element={
+          <AuthGate>
+            <Layout>
+              <PermissionsPage />
             </Layout>
           </AuthGate>
         }

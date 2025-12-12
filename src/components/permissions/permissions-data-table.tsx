@@ -1,3 +1,5 @@
+// TODO not changed yet
+
 import { Button } from "@/components/ui/button";
 import {
   type ColumnDef,
@@ -21,7 +23,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+export function RolesDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { columns, type Payment } from "../../components/roles/columns";
-import { DataTable } from "../../components/roles/data-table";
+import { useEffect } from "react";
+import { columns } from "../../components/roles/columns";
+import { RolesDataTable } from "../../components/roles/roles-data-table";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoles } from "@/features/roles/rolesSlice";
 import type { AppDispatch } from "@/app/store";
@@ -20,126 +20,16 @@ export default function RolesPage() {
   console.log("error: ", error);
 
   useEffect(() => {
+    console.log("calling once ======")
     dispatch(fetchRoles());
+    console.log("calling once end-=====")
+
   }, [dispatch]);
-
-  //   useEffect(() => {
-  //     async function fetchData() {
-  //       const result = [
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         {
-  //           id: "728ed52f",
-  //           amount: 100,
-  //           status: "pending",
-  //           email: "m@example.com",
-  //         },
-  //         // ...
-  //       ];
-  //       setData(result);
-  //     }
-
-  //     fetchData();
-  //   }, []);
 
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-4xl font-bold py-10">Roles</h1>
-      {!loading && <DataTable columns={columns} data={roles} />}
+      {!loading && <RolesDataTable columns={columns} data={roles} />}
     </div>
   );
 }
