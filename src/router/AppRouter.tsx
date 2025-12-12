@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Layout from "../layout/Layout";
 import Login from "../pages/Login";
+import RolesPage from "@/pages/roles/RolesPage";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,14 @@ const AppRouter = () => {
         element={
           <Layout>
             <Dashboard />
+          </Layout>
+        }
+      />
+      <Route
+        path="/roles"
+        element={
+          <Layout>
+            <RolesPage />
           </Layout>
         }
       />
