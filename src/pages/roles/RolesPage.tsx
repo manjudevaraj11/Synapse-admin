@@ -139,7 +139,7 @@ export default function RolesPage() {
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-4xl font-bold py-10">Roles</h1>
-      {!loading && !error && <DataTable columns={columns} data={roles} />}
+      {!loading && <DataTable columns={columns} data={roles} />}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Dashboard from "../pages/Dashboard";
 import Layout from "../layout/Layout";
 import Login from "../pages/Login";
 import RolesPage from "@/pages/roles/RolesPage";
+import AuthGate from "@/components/auth/AuthGate";
 
 const AppRouter = () => {
   return (
@@ -22,9 +23,11 @@ const AppRouter = () => {
       <Route
         path="/roles"
         element={
-          <Layout>
-            <RolesPage />
-          </Layout>
+          <AuthGate>
+            <Layout>
+              <RolesPage />
+            </Layout>
+          </AuthGate>
         }
       />
     </Routes>
