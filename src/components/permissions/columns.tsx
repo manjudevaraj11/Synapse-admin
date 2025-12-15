@@ -11,17 +11,12 @@ import {
   DropdownMenuTrigger,
   // DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import { useNavigate } from "react-router-dom";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
-};
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "id",
     header: "Id",
@@ -33,7 +28,8 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      // const payment = row.original;
+      const navigate = useNavigate();
+      const role = row.original;
 
       return (
         <DropdownMenu>
@@ -46,7 +42,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              // onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigate(`/permissions/${role.id}/edit`)}
             >
               Edit
             </DropdownMenuItem>

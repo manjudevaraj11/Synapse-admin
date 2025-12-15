@@ -23,7 +23,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function RolesDataTable<TData, TValue>({
+export function PermissionsDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
