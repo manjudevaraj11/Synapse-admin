@@ -37,15 +37,15 @@ const Sidebar = () => {
         Permissions
       </NavItem>
 
-      {/* Blog Section */}
-      <Section title="Blog" />
+      {/* Client Section */}
+      <Section title="Client" />
 
-      <NavItem to="/posts" icon={<FileText size={18} />}>
-        Posts
+      <NavItem to="/organisations" icon={<Folder size={18} />}>
+        Organisations
       </NavItem>
 
-      <NavItem to="/categories" icon={<Folder size={18} />}>
-        Categories
+      <NavItem to="/frameworks" icon={<FileText size={18} />}>
+        Frameworks
       </NavItem>
 
       <NavItem to="/authors" icon={<UserCircle size={18} />}>
