@@ -25,18 +25,13 @@ export const fetchRoles = createAsyncThunk("roles/fetchRoles", async () => {
 // --------------------------
 export const createRole = createAsyncThunk(
   "roles/createRole",
-  async (name: string) => {
-    const token = tokenService.get();
-
-    const res = await api.post(
-      "/roles",
-      { name },
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-
-    return res.data as Role;
+  async (name: string, { rejectWithValue }) => {
+    try {
+      const res = await api.post("/roles", { name });
+      return res.data;
+    } catch (err: any) {
+      return rejectWithValue(err.response.data);
+    }
   }
 );
 
@@ -45,18 +40,13 @@ export const createRole = createAsyncThunk(
 // --------------------------
 export const updateRole = createAsyncThunk(
   "roles/updateRole",
-  async ({ id, name }: { id: string; name: string }) => {
-    const token = tokenService.get();
-
-    const res = await api.patch(
-      `/roles/${id}`,
-      { name },
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-
-    return res.data as Role;
+  async ({ id, name }, { rejectWithValue }) => {
+    try {
+      const res = await api.put(`/roles/${id}`, { name });
+      return res.data;
+    } catch (err: any) {
+      return rejectWithValue(err.response.data);
+    }
   }
 );
 

@@ -9,9 +9,12 @@ import {
   selectRolesError,
   selectRolesLoading,
 } from "@/features/roles/rolesSelectors";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function RolesPage() {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const roles = useSelector(selectRoles);
   const loading = useSelector(selectRolesLoading);
   const error = useSelector(selectRolesError);
@@ -20,15 +23,19 @@ export default function RolesPage() {
   console.log("error: ", error);
 
   useEffect(() => {
-    console.log("calling once ======")
+    console.log("calling once ======");
     dispatch(fetchRoles());
-    console.log("calling once end-=====")
-
+    console.log("calling once end-=====");
   }, [dispatch]);
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-4xl font-bold py-10">Roles</h1>
+      <div className="flex items-center justify-between py-10">
+        <h1 className="text-4xl font-bold">Roles</h1>
+
+        <Button className="cursor-pointer" onClick={() => navigate("/roles/create")}>Create Role</Button>
+      </div>
+
       {!loading && <RolesDataTable columns={columns} data={roles} />}
     </div>
   );

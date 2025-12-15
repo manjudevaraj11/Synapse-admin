@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import RolesPage from "@/pages/roles/RolesPage";
 import AuthGate from "@/components/auth/AuthGate";
 import PermissionsPage from "@/pages/Permissions/PermissionsPage";
+import EditRolePage from "@/pages/roles/EditRolePage";
+import CreateRolePage from "@/pages/roles/CreateRolePage";
 
 const AppRouter = () => {
   return (
@@ -29,6 +31,26 @@ const AppRouter = () => {
           <AuthGate>
             <Layout>
               <RolesPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/roles/create"
+        element={
+          <AuthGate>
+            <Layout>
+              <CreateRolePage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/roles/:id/edit"
+        element={
+          <AuthGate>
+            <Layout>
+              <EditRolePage />
             </Layout>
           </AuthGate>
         }
