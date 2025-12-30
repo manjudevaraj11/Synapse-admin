@@ -12,6 +12,15 @@ import CreatePermissionPage from "@/pages/Permissions/CreatePermissionPage";
 import FrameworksListPage from "@/pages/frameworks/FrameworksListPage";
 import CreateFrameworkPage from "@/pages/frameworks/CreateFrameworkPage";
 import EditFrameworkPage from "@/pages/frameworks/EditFrameworkPage";
+import CreateOrganisationPage from "@/pages/organisations/CreateOrganisationPage";
+import OrganisationsListPage from "@/pages/organisations/OrganisationsListPage";
+import EditOrganisationPage from "@/pages/organisations/EditOrganisationPage";
+import OrganisationView from "@/pages/organisations/OrganisationView";
+// import CreateFrameworkStagePage from "@/pages/framework-stages/CreateFrameworkStagePage";
+// import EditFrameworkStagePage from "@/pages/framework-stages/EditFrameworkStagePage";
+// import FrameworkStagesListPage from "@/pages/framework-stages/FrameworkStagesListPage";
+import FrameworkView from "@/pages/frameworks/FrameworkView";
+import FrameworkGroupView from "@/pages/frameworks/group/FrameworkGroupView";
 
 const AppRouter = () => {
   return (
@@ -116,6 +125,68 @@ const AppRouter = () => {
           <AuthGate>
             <Layout>
               <EditFrameworkPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/frameworks/:id"
+        element={
+          <AuthGate>
+            <Layout>
+              <FrameworkView />
+            </Layout>
+          </AuthGate>
+        }
+      />
+
+      <Route
+        path="/organisations"
+        element={
+          <AuthGate>
+            <Layout>
+              <OrganisationsListPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/organisations/create"
+        element={
+          <AuthGate>
+            <Layout>
+              <CreateOrganisationPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/organisations/:id/edit"
+        element={
+          <AuthGate>
+            <Layout>
+              <EditOrganisationPage />
+            </Layout>
+          </AuthGate>
+        }
+      />
+      <Route
+        path="/organisations/:id"
+        element={
+          <AuthGate>
+            <Layout>
+              <OrganisationView />
+            </Layout>
+          </AuthGate>
+        }
+      />
+
+      <Route
+        path="/frameworks/:frameworkId/groups/:groupId"
+        element={
+          <AuthGate>
+            <Layout>
+              <FrameworkGroupView />
             </Layout>
           </AuthGate>
         }
