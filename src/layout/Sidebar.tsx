@@ -14,7 +14,7 @@ const Sidebar = () => {
     <aside className="w-64 h-screen bg-white text-gray-700 border-r border-gray-200 p-5 flex flex-col">
       {/* Logo */}
       <div className="text-2xl font-bold mb-6 px-2 text-black tracking-tight">
-        <span className="italic">Framework GRC</span>
+        <span>Synapse</span>
       </div>
 
       {/* Dashboard */}
@@ -29,7 +29,7 @@ const Sidebar = () => {
         Users
       </NavItem>
 
-      <NavItem to="/roles" icon={<ShoppingBag size={18} />} badge={201}>
+      <NavItem to="/roles" icon={<ShoppingBag size={18} />} /* badge={201} */>
         Roles
       </NavItem>
 
@@ -48,9 +48,9 @@ const Sidebar = () => {
         Frameworks
       </NavItem>
 
-      <NavItem to="/authors" icon={<UserCircle size={18} />}>
-        Authors
-      </NavItem>
+      {/* <NavItem to="/framework-stages" icon={<UserCircle size={18} />}>
+        Framework Stages
+      </NavItem> */}
     </aside>
   );
 };
